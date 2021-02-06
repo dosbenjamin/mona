@@ -1,0 +1,17 @@
+extends ../default.pug
+
+block settings
+  - const controller = 'bill'
+  - const action = 'list'
+  - const title = 'Factures de vente'
+
+block content
+  div(class="flex items-end mt-10")
+    table(class="w-full js-bill-area")
+      tr(class="font-bold")
+        td N°
+        td Client
+        td Nom
+        td HTVA
+        td TVAC
+        td TVA

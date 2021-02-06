@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/views/pages/*.pug",
-    "build": "parcel build src/views/pages/*.pug",
+    "build": "parcel build src/views/pages/*.pug --public-url .",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
