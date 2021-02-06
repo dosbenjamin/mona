@@ -29,3 +29,23 @@
     @apply antialiased;
   }
 }
+
+.form.is-visible {
+  @apply visible opacity-100;
+}
+
+.form.is-invisible {
+  @apply invisible opacity-0;
+}
+
+.rect-rounded {
+  @apply px-8 py-4 rounded text-small;
+}
+
+.rect-rounded-border {
+  @apply rect-rounded border-1;
+}
+
+.rect-rounded-full {
+  @apply px-8 py-4 rounded;
+}
