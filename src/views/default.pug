@@ -5,9 +5,12 @@ html(lang="fr")
 
   include components/head.pug
 
-  body(data-controller="")
+  body(data-controller = controller)
 
     include components/header.pug
 
-    main: div(class="w-760 m-auto")
+    main: div(class="w-760 m-auto py-10")
+
+      include components/content-header.pug
+
       block content
