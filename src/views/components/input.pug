@@ -1,0 +1,4 @@
+mixin input(label, placeholder, type = 'text', required = true)
+  div(class="w-1/2 flex flex-col flex-auto")
+    label #{label}
+    input(class="py-4 px-6 border-1 rounded border-grey-400", placeholder = placeholder, type = type, required = required)

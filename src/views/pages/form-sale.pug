@@ -2,5 +2,17 @@ extends ../default.pug
 
 block settings
   - const controller = 'Sale'
+  - const title = 'Création d\'une facture de vente'
+
+include ../components/input.pug
 
 block content
+  form(class="flex flex-wrap mt-12")
+    +input('Nom', 'Dos Santos')
+    +input('Prénom', 'Benjamin')
+    +input('Adresse', 'Avenue Albert 1er')
+    +input('Numéro', '299', 'number')
+    +input('Code postal', '1332', 'number')
+    +input('Ville', 'Genval')
+    +input('Pays', 'Belgium')
+    +input('Numéro de T.V.A', 'Numéro de T.V.A')
