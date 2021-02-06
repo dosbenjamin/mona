@@ -4,8 +4,8 @@
   "description": "Facture",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html",
+    "dev": "parcel src/views/pages/*.pug",
+    "build": "parcel build src/views/pages/*.pug",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -26,7 +26,8 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "^11.2.3",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "pug": "^3.0.0"
   },
   "config": {
     "forge": {

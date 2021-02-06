@@ -1,0 +1,14 @@
+extends ../default.pug
+
+block settings
+  - const controller = 'Home'
+
+mixin card
+  li(class="w-1/2 p-10 bg-blue last:ml-20")
+    h2 Janvier
+    strong 1920€
+
+block content
+  ul(class="flex justify-between text-white")
+    +card
+    +card
