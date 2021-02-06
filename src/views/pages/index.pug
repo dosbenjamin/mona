@@ -4,11 +4,11 @@ block settings
   - const controller = 'Home'
 
 mixin card
-  li(class="w-1/2 p-10 bg-blue last:ml-20")
-    h2 Janvier
-    strong 1920€
+  li(class="w-1/2 p-10 bg-grey-400 last:ml-20")
+    h2(class="text-xl text-grey-600 text-light") Janvier
+    strong(class="font-bold text-2xl") 1920€
 
 block content
-  ul(class="flex justify-between text-white")
+  ul(class="flex justify-between text-center")
     +card
     +card
