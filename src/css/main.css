@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Kumbh Sans;
+    font-weight: 300;
+    src: url(../fonts/KumbhSans-Light.woff) format("woff");
+  }
+
+  @font-face {
+    font-family: Kumbh Sans;
+    font-weight: 400;
+    src: url(../fonts/KumbhSans-Regular.woff) format("woff");
+  }
+
+  @font-face {
+    font-family: Kumbh Sans;
+    font-weight: 700;
+    src: url(../fonts/KumbhSans-Bold.woff) format("woff");
+  }
+
+  html {
+    @apply text-base;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
