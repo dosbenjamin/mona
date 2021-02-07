@@ -32,11 +32,17 @@ export default () => {
 
   bill.tvac = (bill.htva * 0.21) + bill.htva
   bill.tva = TVA
-  bill.date = new Date()
+  bill.date = {
+    year: new Date().getFullYear(),
+    month: new Date().getMonth() + 3,
+    day: new Date().getDay()
+  }
 
   const storage = localStorage.getItem('saleBills')
     ? JSON.parse(localStorage.getItem('saleBills'))
     : localStorage.setItem('saleBills', JSON.stringify([bill]))
+
+  self.bill = storage.length
 
   storage && localStorage.setItem('saleBills', JSON.stringify([...storage, bill]))
 }
