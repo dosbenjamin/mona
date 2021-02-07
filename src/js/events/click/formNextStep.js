@@ -10,31 +10,26 @@ const toggle = ({ $element, remove, add }) => {
 }
 
 export default () => {
-  const $newButton = $(`.js-form-toggle:not(.${ activeClass })`)
-  const $oldButton = $(`.js-form-toggle.${ activeClass }`)
-  const $oldStep = $(`.js-form.${ visibleClass }`)
-  const $newStep = $(`.js-form.${ invisibleClass }`)
-
   if (event.target.classList.contains(activeClass)) return
 
   [
     {
-      $element: $oldStep,
+      $element: $(`.js-form.${ visibleClass }`),
       remove: visibleClass,
       add: invisibleClass
     },
     {
-      $element: $newStep,
-      remove: invisibleClass,
-      add: visibleClass
-    },
-    {
-      $element: $oldButton,
+      $element: $(`.js-form-toggle.${ activeClass }`),
       remove: activeClass,
       add: null
     },
     {
-      $element: $newButton,
+      $element: $(`.js-form.${ invisibleClass }`),
+      remove: invisibleClass,
+      add: visibleClass
+    },
+    {
+      $element: $(`.js-form-toggle:not(.${ activeClass })`),
       remove: null,
       add: activeClass
     }
