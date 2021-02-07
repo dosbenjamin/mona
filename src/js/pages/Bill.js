@@ -1,13 +1,13 @@
 import Page from './Page'
 import { $ } from '../utilities/dom'
 
-const createNewRow = ({ firstname, lastname, tvac, htva, tva }, index) => {
+const createNewRow = ({ customer, firstname, lastname, tvac, htva, tva }, index) => {
   const $row = document.createElement('template')
 
   $row.innerHTML = `<tr class="font-bold">
     <td>${ index + 1 }</td>
+    <td>${ customer ? customer : firstname }</td>
     <td>${ lastname }</td>
-    <td>${ firstname }</td>
     <td>${ htva }</td>
     <td>${ tvac }</td>
     <td>${ tva }</td>
@@ -31,7 +31,7 @@ export default class extends Page {
       && JSON.parse(localStorage.getItem('saleBills'))
 
     const $area = $('.js-bill-area')
-    const $rows = bills.map(createNewRow)
+    const $rows = bills.map(createNewRow).reverse()
 
     $rows.forEach($row => $area.append($row))
   }

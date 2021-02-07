@@ -1,29 +1,25 @@
-import { $$ } from '../../utilities/dom'
+import { $, $$ } from '../../utilities/dom'
 
 const RATE = 40
 const TVA = 21
 
+const $infos = $$('.js-contact-area .js-form-input')
+
 export default () => {
-  event.preventDefault()
-
-  const $infos = $$('.js-contact-area .js-form-input')
-
   const bill = $infos.reduce((bill, $info) => {
     bill[$info.name] = $info.value
     return bill
-  })
+  }, {})
 
   const $services = $$('.js-services-area .js-form-input')
 
   bill.services = $services
-    .filter(($service, index) => index % 2 === 0)
+    .filter(($service, index) => !(index % 2))
     .map(($service, index) => {
-      console.log($service)
-      console.log($service.closest('.js-form-input'))
-      const hours = $services[index + 1].value
+      const hours = $('.js-form-input', $service.parentElement.nextElementSibling).value
 
       return {
-        description: $services[index].value,
+        description: $service.value,
         hours: hours,
         htva: RATE * hours,
         tvac: ((RATE * hours) * 0.21) + (RATE * hours)
