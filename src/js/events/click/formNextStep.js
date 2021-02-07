@@ -1,18 +1,42 @@
 import { $ } from '../../utilities/dom'
 
+const visibleClass = 'is-visible'
+const invisibleClass = 'is-invisible'
+const activeClass = 'is-active'
+
+const toggle = ({ $element, remove, add }) => {
+  $element.classList.remove(remove)
+  $element.classList.add(add)
+}
+
 export default () => {
-  const $new = event.target
-  const $old = $('.js-form-toggle.is-active')
+  const $newButton = $(`.js-form-toggle:not(.${ activeClass })`)
+  const $oldButton = $(`.js-form-toggle.${ activeClass }`)
+  const $oldStep = $(`.js-form.${ visibleClass }`)
+  const $newStep = $(`.js-form.${ invisibleClass }`)
 
-  const $oldStep = $('.js-form.is-visible')
-  const $newStep = $('.js-form.is-invisible')
+  if (event.target.classList.contains(activeClass)) return
 
-  $old.classList.remove('is-active')
-  $new.classList.add('is-active')
-
-  $oldStep.classList.remove('is-visible')
-  $oldStep.classList.add('is-invisible')
-
-  $newStep.classList.remove('is-invisible')
-  $newStep.classList.add('is-visible')
+  [
+    {
+      $element: $oldStep,
+      remove: visibleClass,
+      add: invisibleClass
+    },
+    {
+      $element: $newStep,
+      remove: invisibleClass,
+      add: visibleClass
+    },
+    {
+      $element: $oldButton,
+      remove: activeClass,
+      add: null
+    },
+    {
+      $element: $newButton,
+      remove: null,
+      add: activeClass
+    }
+  ].forEach(toggle)
 }
