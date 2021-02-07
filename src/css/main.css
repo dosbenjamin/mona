@@ -26,7 +26,11 @@
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-white;
+  }
+
+  button {
+    @apply focus:outline-none;
   }
 }
 
@@ -46,6 +50,14 @@
   @apply rect-rounded border-1;
 }
 
+.rect-rounded-border.is-active {
+  @apply text-blue border-blue;
+}
+
 .rect-rounded-full {
   @apply px-8 py-4 rounded;
+}
+
+.line {
+  @apply w-0.5 h-4 bg-white block absolute left-1/2 top-1/2 pointer-events-none;
 }
