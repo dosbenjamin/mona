@@ -1,21 +1,27 @@
 import { $$ } from '../../utilities/dom'
-import calculateTva from '../../components/calculateTva'
 
 const RATE = 40
 const TVA = 21
 
 export default () => {
-  const bill = {}
+  event.preventDefault()
 
   const $infos = $$('.js-contact-area .js-form-input')
-  $infos.forEach($info => bill[$info.name] = $info.value)
+
+  const bill = $infos.reduce((bill, $info) => {
+    bill[$info.name] = $info.value
+    return bill
+  })
 
   const $services = $$('.js-services-area .js-form-input')
 
   bill.services = $services
-    .filter(($service, index) => !(index % 2))
+    .filter(($service, index) => index % 2 === 0)
     .map(($service, index) => {
+      console.log($service)
+      console.log($service.closest('.js-form-input'))
       const hours = $services[index + 1].value
+
       return {
         description: $services[index].value,
         hours: hours,
