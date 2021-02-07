@@ -1,4 +1,4 @@
-import clickHandler from '../utilities/eventHandler'
+import { clickHandler } from '../utilities/eventHandler'
 
 export default class {
   constructor () {
