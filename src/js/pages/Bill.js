@@ -24,14 +24,15 @@ const waitTitle = (year, month) => new Promise((resolve, reject) => setTimeout((
 
 const createTitleRow = (year, month) => {
   const $row = document.createElement('template')
-  $row.innerHTML = `<tr class="js-title-row" data-year="${year}" data-month="${month}">
+  $row.innerHTML = `<tr class="js-title-row relative" data-year="${year}" data-month="${month}">
     <td colspan="5" class="uppercase py-8">${months[month]} ${year}</td>
   </tr>`
   return $row.content
 }
 
-const createNewRow = async ({ customer, firstname, lastname, tvac, htva, tva, date }, index) => {
+const createNewRow = async ({ customer, tvac, htva, tva, date }, index) => {
   const { year, month } = date
+  const { company, firstname, lastname } = customer
 
   const $row = document.createElement('template')
 
@@ -41,12 +42,19 @@ const createNewRow = async ({ customer, firstname, lastname, tvac, htva, tva, da
     const $titleRow = createTitleRow(year, month)
     $row.content.prepend($titleRow)
   } finally {
-    $row.innerHTML += `<tr>
-      <td>${index + 1}</td>
-      <td>${customer ? customer : (firstname + ' ' + lastname)}</td>
-      <td>${htva}</td>
-      <td>${tvac}</td>
-      <td>${tva}</td>
+    $row.innerHTML += `<tr class="relative js-bill-item" data-id="${ index }">
+      <td>${ index + 1}</td>
+      <td>${ company ? company : (firstname + ' ' + lastname)}</td>
+      <td>${ htva }</td>
+      <td>${ tvac }</td>
+      <td>${ tva }</td>
+      <td class="relative">
+        <button class="absolute -right-1/3 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-grey-400 rounded-full w-12 h-12 overflow-hidden" type="button" data-click="removeBill">
+          <span class="line transform -translate-x-1/2 -translate-y-1/2 rotate-45"></span>
+          <span class="sr-only">Supprimer</span>
+          <span class="line transform -translate-x-1/2 -translate-y-1/2 -rotate-45"></span>
+        </button>
+      </td>
     </tr>`
   }
 
