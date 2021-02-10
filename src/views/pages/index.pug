@@ -13,3 +13,8 @@ block content
   ul(class="flex justify-between text-center")
     +card
     +card
+
+  a(data-click="exportData") Exporter
+  form(action="" method="method")
+    input(type="file")
+    button(type="button", data-click="importData") Importer

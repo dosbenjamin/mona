@@ -1,8 +1,8 @@
-import easyinvoice from 'easyinvoice'
+// import invoiceIt from '@rimiti/invoice-it'
 import 'regenerator-runtime/runtime'
 
 export default () => {
-  // event.preventDefault()
+  event.preventDefault()
 
   // const {
   //   customer,

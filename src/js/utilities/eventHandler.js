@@ -1,7 +1,8 @@
 import * as clickEvents from '../events/click'
+import * as submitEvents from '../events/submit'
 
-const splitEvents = events => events
-  && events.split(' ').forEach(event => clickEvents[event]())
+const splitEvents = (events, type) => events
+  && events.split(' ').forEach(event => type[event]())
 
-export const clickHandler = () => splitEvents(event.target.dataset.click)
-export const hoverHandler = () => splitEvents(event.target.dataset.hover)
+export const clickHandler = () => splitEvents(event.target.dataset.click, clickEvents)
+export const submitHandler = () => splitEvents(event.target.dataset.submit, submitEvents)
