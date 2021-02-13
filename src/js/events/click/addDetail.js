@@ -40,7 +40,7 @@ const createNewRow = () => {
 
     ${ self.type === 'sales' ? subdetail : '' }
 
-    <button class="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 bg-grey-400 rounded-full w-12 h-12 overflow-hidden" type="button" data-click="removeParent">
+    <button class="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 bg-grey-400 rounded-full w-12 h-12 overflow-hidden" type="button" data-click="removeDetail">
       <span class="line transform -translate-x-1/2 -translate-y-1/2 rotate-45"></span>
       <span class="sr-only">Supprimer</span>
       <span class="line transform -translate-x-1/2 -translate-y-1/2 -rotate-45"></span>
