@@ -15,7 +15,7 @@ const content = {
   }
 }
 
-const subdetail = `<ul class="flex flex-col w-full mt-10 js-subdetails-area">
+const subdetail = `<ul class="flex flex-col w-full mt-10 js-subdetails-area is-invisible">
     <li class="flex justify-between">
       <label>Détail du service</label>
       <label>Nombres d'heures</label>

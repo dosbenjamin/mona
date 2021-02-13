@@ -34,12 +34,12 @@
   }
 }
 
-.form.is-visible {
-  @apply visible opacity-100;
+.is-visible {
+  @apply visible;
 }
 
-.form.is-invisible {
-  @apply invisible opacity-0;
+.is-invisible {
+  @apply invisible;
 }
 
 .rect-rounded {
