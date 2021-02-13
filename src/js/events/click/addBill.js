@@ -56,7 +56,7 @@ export default () => {
   const today = new Date()
   const date = {
     year: today.getFullYear(),
-    month: today.getMonth() + 1,
+    month: today.getMonth() + 3,
     day: today.getDate()
   }
 
