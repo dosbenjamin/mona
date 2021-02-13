@@ -5,14 +5,14 @@ const invisibleClass = 'is-invisible'
 const activeClass = 'is-active'
 
 const toggle = ({ $element, remove, add }) => {
-  $element.classList.remove(remove)
-  $element.classList.add(add)
+  remove && $element.classList.remove(remove)
+  add && $element.classList.add(add)
 }
 
 export default () => {
   if (event.target.classList.contains(activeClass)) return
 
-  [
+  const actions = [
     {
       $element: $(`.js-form.${ visibleClass }`),
       remove: visibleClass,
@@ -21,7 +21,6 @@ export default () => {
     {
       $element: $(`.js-form-toggle.${ activeClass }`),
       remove: activeClass,
-      add: null
     },
     {
       $element: $(`.js-form.${ invisibleClass }`),
@@ -30,8 +29,9 @@ export default () => {
     },
     {
       $element: $(`.js-form-toggle:not(.${ activeClass })`),
-      remove: null,
-      add: activeClass
+      add: activeClass,
     }
-  ].forEach(toggle)
+  ]
+
+  actions.forEach(toggle)
 }
