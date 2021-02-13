@@ -30,9 +30,9 @@ const createTitleRow = (year, month) => {
   return $row.content
 }
 
-const createNewRow = async ({ customer, tvac, htva, tva, date }, index) => {
+const createNewRow = async ({ infos, tvac, htva, tva, date }, index) => {
   const { year, month } = date
-  const { company, firstname, lastname } = customer
+  const { company, firstname, lastname } = infos
 
   const $row = document.createElement('template')
 
