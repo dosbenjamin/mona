@@ -27,7 +27,7 @@ const createNewRow = () => {
   const $row = document.createElement('template')
 
   $row.innerHTML = `<div class="flex flex-col border-grey-400 p-10 border-2 rounded-md items-start mt-10 relative js-detail">
-    <div class="flex justify-between w-full">
+    <div class="grid grid-cols-2 gap-x-12 gap-y-6 w-full">
       <div class="flex flex-col flex-auto">
         <label>${ content[self.type].firstLabel }</label>
         <input class="rect-rounded-border border-grey-400 mt-2 js-form-input" name="description" placeholder="Dos Santos" type="text" required="required">

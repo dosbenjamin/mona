@@ -5,13 +5,13 @@ append settings
   - const title = 'Création d\'une facture d\'achat'
 
 block contact
-  +input('Vendeur', 'Aldi', 'company')
-  +input('Adresse', 'Avenue Albert 1er', 'address')
+  +input('Vendeur', 'Aldi', 'company', 'text')
+  +input('Adresse', 'Avenue Albert 1er', 'address', 'text')
   +input('Numéro', '299', 'number', 'number')
-  +input('Code postal', '1332', 'zip', 'number')
-  +input('Ville', 'Genval', 'city')
+  +input('Code postal', '1332', 'zip', 'number', 'number')
+  +input('Ville', 'Genval', 'city', 'text')
   +input('Pays', 'Belgium', 'country')
 
 block details
   +input('Nom du produit', 'Dos Santos', 'description')
-  +input('Prix', 'Dos Santos', 'price')
+  +input('Prix', 'Dos Santos', 'price', 'number')
