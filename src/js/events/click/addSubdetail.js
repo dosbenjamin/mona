@@ -19,6 +19,9 @@ const createNewRow = () => {
 export default () => {
   const $detail = event.target.closest('.js-detail')
   event.target.previousElementSibling.append(createNewRow())
-  $$('.js-subdetail', $detail).length >= 1
-    && $('.js-subdetails-area', $detail).classList.remove('is-invisible')
+
+  if ($$('.js-subdetail', $detail).length >= 1) {
+    $('.js-subdetails-area', $detail).classList.remove('is-invisible')
+    $('.js-form-input[name="hours"]', $detail).disabled = true
+  }
 }
