@@ -33,10 +33,12 @@ export default () => {
   const tvac = htva * 1.21
   const tva = tvac - htva
 
+  const today = new Date()
+
   const date = {
-    year: new Date().getFullYear(),
-    month: new Date().getMonth() + 3,
-    day: new Date().getDay()
+    year: today.getFullYear(),
+    month: today.getMonth() + 1,
+    day: today.getDate()
   }
 
   const bill = { customer, services, htva, tvac, tva, date }
