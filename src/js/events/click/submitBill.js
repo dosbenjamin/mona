@@ -4,7 +4,7 @@ import getTVA from '../../components/tva'
 const RATE = 40
 const TVA = 21
 
-const $infos = $$('.js-contact-area .js-form-input')
+const $infos = $$('.js-infos-area .js-form-input')
 
 const calculateDetail = {
   purchases: amount => {
@@ -28,19 +28,27 @@ export default () => {
     return infos
   }, {})
 
-  const $details = $$('.js-details-area .js-form-input')
+  const $details = $$('.js-detail')
   const details = $details
-    .filter(($detail, index) => !(index % 2))
-    .map(($detail, index) => {
-      const $nextInput = $('.js-form-input', $detail.parentElement.nextElementSibling)
-      const price = calculateDetail[self.type]($nextInput.value)
-      return Object.assign({
-        description: $detail.value
-      }, price)
+    .map($detail => {
+      const $secondInput = $('.js-form-input[name="hours"], .js-form-input[name="price"]', $detail)
+      const details = Object.assign({
+        description: $('.js-form-input[name="description"]', $detail).value
+      }, calculateDetail[self.type]($secondInput.value))
+
+      self.type === 'sales' && Object.assign(details, $$('.js-subdetail', $detail.closest('.js-detail'))
+        .map($subdetail => {
+          const hours = $('.js-form-input[name="hours"]', $subdetail).value
+          return Object.assign({
+            description: $('.js-form-input[name="detail"]', $subdetail).value,
+          }, calculateDetail.sales(hours))
+        }))
+
+      return details
     })
 
   const htva = details
-    .map(({ htva }) => htva)
+    .map(({ htva }) => parseFloat(htva))
     .reduce((total, amout) => total + amout)
   const tvac = getTVA(htva)
   const tva = tvac - htva
@@ -58,7 +66,7 @@ export default () => {
     ? JSON.parse(localStorage.getItem(self.type))
     : localStorage.setItem(self.type, JSON.stringify([bill]))
 
-  self.bill = storage.length
+  // self.bill = storage.length
 
   storage && localStorage.setItem(self.type, JSON.stringify([...storage, bill]))
 }

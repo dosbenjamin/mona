@@ -6,15 +6,21 @@ append settings
 
 block contact
   +input('Client', 'Aldi', 'company')
+  +input('Numéro de T.V.A', 'Numéro de T.V.A', 'tva')
   +input('Nom', 'Dos Santos', 'lastname')
   +input('Prénom', 'Benjamin', 'firstname')
   +input('Adresse', 'Avenue Albert 1er', 'address')
-  +input('Numéro', '299', 'number', 'number')
   +input('Code postal', '1332', 'zip', 'number')
   +input('Ville', 'Genval', 'city')
   +input('Pays', 'Belgium', 'country')
-  +input('Numéro de T.V.A', 'Numéro de T.V.A', 'tva')
 
-block products
-  +input('Description du service', 'Dos Santos', 'description')
+block details
+  +input('Nom du service', 'Dos Santos', 'description')
   +input('Nombre d\'heure(s)', 'Dos Santos', 'hours')
+
+block subdetails
+  ul(class="flex flex-col w-full mt-10 js-subdetails-area")
+    li(class="flex justify-between")
+      label Détail du service
+      label Nombres d'heures
+  button(type="button" class="flex-wrap rect-rounded-border border-blue text-blue font-bold m-l-auto ml-auto mt-4" data-click="addSubdetail") Ajouter un sous-service

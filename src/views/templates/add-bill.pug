@@ -18,16 +18,20 @@ block content
 
   div(class="relative")
     form(class="absolute mt-12 flex flex-col w-full js-form form is-visible")
-      div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-contact-area")
+      div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-infos-area")
         block contact
 
       button(class="rect-rounded-full border-blue bg-blue text-white uppercase text-small ml-auto mt-12 js-next-button" type="button" data-click="formNextStep") Suivant
 
     form(class="absolute mt-12 flex flex-col w-full js-form form is-invisible")
       div
-        div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-details-area")
-          block products
+        div(class="js-details-area")
+          div(class="flex flex-col border-grey-400 p-10 border-2 rounded-md items-start js-detail")
+            div(class="flex justify-between w-full")
+              block details
 
-        button(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12", type="button", data-click="addService") Ajouter un service
+            block subdetails
+
+        button(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12", type="button", data-click="addDetail") Ajouter un service
 
       a(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12 text-small uppercase", href = `/list-${ type }.pug`, data-click="submitBill downloadFile") Suivant
