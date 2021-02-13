@@ -1,0 +1,17 @@
+extends ../templates/add-bill.pug
+
+append settings
+  - const type = 'purchases'
+  - const title = 'Création d\'une facture d\'achat'
+
+block contact
+  +input('Vendeur', 'Aldi', 'company')
+  +input('Adresse', 'Avenue Albert 1er', 'address')
+  +input('Numéro', '299', 'number', 'number')
+  +input('Code postal', '1332', 'zip', 'number')
+  +input('Ville', 'Genval', 'city')
+  +input('Pays', 'Belgium', 'country')
+
+block products
+  +input('Nom du produit', 'Dos Santos')
+  +input('Prix', 'Dos Santos')

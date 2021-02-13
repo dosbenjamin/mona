@@ -1,0 +1,16 @@
+extends ../default.pug
+
+block settings
+  - const controller = 'bill'
+  - const action = 'list'
+
+block content
+  div(class="flex items-end mt-10")
+  table(class="w-full")
+    tbody(class="js-bill-area")
+      tr(class="font-bold")
+        td N°
+        td Client
+        td HTVA
+        td TVAC
+        td TVA

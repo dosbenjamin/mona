@@ -1,42 +1,20 @@
-extends ../default.pug
+extends ../templates/add-bill.pug
 
-block settings
-  - const controller = 'bill'
-  - const action = 'create'
+append settings
+  - const type = 'sales'
   - const title = 'Création d\'une facture de vente'
 
-include ../components/input.pug
+block contact
+  +input('Client', 'Aldi', 'company')
+  +input('Nom', 'Dos Santos', 'lastname')
+  +input('Prénom', 'Benjamin', 'firstname')
+  +input('Adresse', 'Avenue Albert 1er', 'address')
+  +input('Numéro', '299', 'number', 'number')
+  +input('Code postal', '1332', 'zip', 'number')
+  +input('Ville', 'Genval', 'city')
+  +input('Pays', 'Belgium', 'country')
+  +input('Numéro de T.V.A', 'Numéro de T.V.A', 'tva')
 
-block content
-  div(class="flex items-end mt-10")
-    ul(class="flex")
-      li
-        button(class="rect-rounded-border text-grey-600 border-grey-400 font-bold  js-form-toggle is-active" data-click="formNextStep") 1. Données de contact
-      li(class="ml-10")
-        button(class="rect-rounded-border text-grey-600 border-grey-400 font-bold js-form-toggle" data-click="formNextStep") 2. Produits
-
-    p(class="ml-auto") * Champs requis
-
-  div(class="relative")
-    form(class="absolute mt-12 flex flex-col w-full js-form form is-visible")
-      div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-contact-area")
-        +input('Client', 'Aldi', 'company')
-        +input('Nom', 'Dos Santos', 'lastname')
-        +input('Prénom', 'Benjamin', 'firstname')
-        +input('Adresse', 'Avenue Albert 1er', 'address')
-        +input('Numéro', '299', 'number', 'number')
-        +input('Code postal', '1332', 'zip', 'number')
-        +input('Ville', 'Genval', 'city')
-        +input('Pays', 'Belgium', 'country')
-        +input('Numéro de T.V.A', 'Numéro de T.V.A', 'tva')
-
-      button(class="rect-rounded-full border-blue bg-blue text-white uppercase text-small ml-auto mt-12 js-next-button" type="button" data-click="formNextStep") Suivant
-
-    form(class="absolute mt-12 flex flex-col w-full js-form form is-invisible")
-      div
-        div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-services-area")
-          +input('Description du service', 'Dos Santos')
-          +input('Nombre d\'heure(s)', 'Dos Santos')
-        button(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12" type="button" data-click="addService") Ajouter un service
-
-      a(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12 text-small uppercase" href="/list-sales.pug" data-click="submitBill downloadFile") Suivant
+block products
+  +input('Description du service', 'Dos Santos')
+  +input('Nombre d\'heure(s)', 'Dos Santos')

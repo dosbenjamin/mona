@@ -41,11 +41,11 @@ export default () => {
 
   const bill = { customer, services, htva, tvac, tva, date }
 
-  const storage = localStorage.getItem('saleBills')
-    ? JSON.parse(localStorage.getItem('saleBills'))
-    : localStorage.setItem('saleBills', JSON.stringify([bill]))
+  const storage = localStorage.getItem(self.type)
+    ? JSON.parse(localStorage.getItem(self.type))
+    : localStorage.setItem(self.type, JSON.stringify([bill]))
+
+  storage && localStorage.setItem(self.type, JSON.stringify([...storage, bill]))
 
   self.bill = storage.length
-
-  storage && localStorage.setItem('saleBills', JSON.stringify([...storage, bill]))
 }

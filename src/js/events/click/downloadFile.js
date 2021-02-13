@@ -2,7 +2,7 @@
 import 'regenerator-runtime/runtime'
 
 export default () => {
-  event.preventDefault()
+  // event.preventDefault()
 
   // const {
   //   customer,

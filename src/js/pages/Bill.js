@@ -64,6 +64,7 @@ const createNewRow = async ({ customer, tvac, htva, tva, date }, index) => {
 export default class extends Page {
   constructor() {
     super()
+    self.type = document.body.dataset.type
     console.log('Controller: Bill')
   }
 
@@ -72,8 +73,8 @@ export default class extends Page {
   }
 
   async list() {
-    const bills = localStorage.getItem('saleBills')
-      && JSON.parse(localStorage.getItem('saleBills'))
+    const bills = localStorage.getItem(self.type)
+      && JSON.parse(localStorage.getItem(self.type))
 
     const $area = $('.js-bill-area')
 

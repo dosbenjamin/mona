@@ -4,7 +4,7 @@ export default () => {
   const $bill = event.target.closest('.js-bill-item')
   const { id } = $bill.dataset
 
-  const storage = JSON.parse(localStorage.getItem('saleBills'))
+  const storage = JSON.parse(localStorage.getItem(self.type))
   const newStorage = storage
     .filter((bill, index) => index !== parseInt(id))
 
@@ -15,6 +15,6 @@ export default () => {
     .some(({ year, month }) => year === date.year && month === date.month)
 
   $bill.remove()
-  !isNotLast && $bill.previousElementSibling.remove()
-  localStorage.setItem('saleBills', JSON.stringify(newStorage))
+  // !isNotLast && $bill.previousElementSibling.remove()
+  localStorage.setItem(self.type, JSON.stringify(newStorage))
 }

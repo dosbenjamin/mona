@@ -1,0 +1,33 @@
+extends ../default.pug
+
+block settings
+  - const controller = 'bill'
+  - const action = 'create'
+
+include ../components/input.pug
+
+block content
+  div(class="flex items-end mt-10")
+    ul(class="flex")
+      li
+        button(class="rect-rounded-border text-grey-600 border-grey-400 font-bold  js-form-toggle is-active" data-click="formNextStep") 1. Données de contact
+      li(class="ml-10")
+        button(class="rect-rounded-border text-grey-600 border-grey-400 font-bold js-form-toggle" data-click="formNextStep") 2. Produits
+
+    p(class="ml-auto") * Champs requis
+
+  div(class="relative")
+    form(class="absolute mt-12 flex flex-col w-full js-form form is-visible")
+      div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-contact-area")
+        block contact
+
+      button(class="rect-rounded-full border-blue bg-blue text-white uppercase text-small ml-auto mt-12 js-next-button" type="button" data-click="formNextStep") Suivant
+
+    form(class="absolute mt-12 flex flex-col w-full js-form form is-invisible")
+      div
+        div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-services-area")
+          block products
+
+        button(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12", type="button", data-click="addService") Ajouter un service
+
+      a(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12 text-small uppercase", href = `/list-${ type }.pug`, data-click="submitBill downloadFile") Suivant
