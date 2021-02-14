@@ -70,10 +70,9 @@ export default class extends Page {
 
     bills && bills
       .map(({ date }) => date)
-      .reduce((unique, date) => JSON.stringify(unique).includes(JSON.stringify(date))
-        ? unique
-        : [...unique, date]
-      , [])
+      .reduce((uniques, date) => JSON.stringify(uniques).includes(JSON.stringify(date))
+        ? uniques
+        : [...uniques, date], [])
       .reverse()
       .forEach(date => $area.append(createTitleRow(date)))
 
