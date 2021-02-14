@@ -56,11 +56,19 @@ export default () => {
   const today = new Date()
   const date = {
     year: today.getFullYear(),
-    month: today.getMonth() + 3,
+    month: today.getMonth() + 1,
     day: today.getDate()
   }
 
-  const bill = { infos, details, htva, tvac, tva, date }
+  const id = [
+    date.year,
+    date.month,
+    date.day,
+    today.getMinutes(),
+    today.getMilliseconds()
+  ].reduce((id, current) => id + current.toString())
+
+  const bill = { infos, details, htva, tvac, tva, date, id }
 
   const storage = localStorage.getItem(self.type)
     ? JSON.parse(localStorage.getItem(self.type))
