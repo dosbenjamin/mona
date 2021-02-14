@@ -1,5 +1,6 @@
 import Page from './Page'
 import { $, $$ } from '../utilities/dom'
+import { googleAuthentification } from '../components/googleAuthentification'
 
 const months = {
   1: 'Janvier',
@@ -47,9 +48,7 @@ const createNewRow = ({ infos: { company, firstname, lastname }, date: { year, m
   return $row.content
 }
 
-// const createSubRow = () => {
-//   cons $
-// }
+const initGoogle = () => googleAuthentification()
 
 export default class extends Page {
   constructor () {
@@ -59,7 +58,7 @@ export default class extends Page {
   }
 
   create () {
-    console.log('Action: Create')
+    gapi.load('client:auth2', initGoogle)
   }
 
   list () {

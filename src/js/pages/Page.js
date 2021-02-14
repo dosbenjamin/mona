@@ -1,4 +1,5 @@
 import { changeHandler, clickHandler, inputHandler } from '../utilities/eventHandler'
+import { gapi } from 'gapi-script'
 
 export default class {
   constructor () {
