@@ -47,34 +47,37 @@ const createNewRow = ({ infos: { company, firstname, lastname }, date: { year, m
   return $row.content
 }
 
+// const createSubRow = () => {
+//   cons $
+// }
+
 export default class extends Page {
-  constructor() {
+  constructor () {
     super()
     self.type = document.body.dataset.type
     console.log('Controller: Bill')
   }
 
-  create() {
+  create () {
     console.log('Action: Create')
   }
 
-  list() {
+  list () {
     const $area = $('.js-bill-area')
 
     const bills = localStorage.getItem(self.type)
       && JSON.parse(localStorage.getItem(self.type))
 
-    const dates = bills && bills
+    bills && bills
       .map(({ date }) => date)
-      .reduce((unique, date) => {
-        return JSON.stringify(unique).includes(JSON.stringify(date))
-          ? unique
-          : [...unique, date]
-      }, [])
+      .reduce((unique, date) => JSON.stringify(unique).includes(JSON.stringify(date))
+        ? unique
+        : [...unique, date]
+      , [])
       .reverse()
       .forEach(date => $area.append(createTitleRow(date)))
 
-    bills && bills.forEach((bill, index) => {
+    bills && bills.forEach(bill => {
       const { date: { year, month } } = bill
       const $row = createNewRow(bill)
       $area.insertBefore($row, $(`.js-title-row[data-year="${ year }"][data-month="${ month }"]`).nextSibling)

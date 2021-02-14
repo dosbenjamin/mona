@@ -23,10 +23,9 @@ const calculateDetail = {
 }
 
 export default () => {
-  const infos = $infos.reduce((infos, $info) => {
-    infos[$info.name] = $info.value
-    return infos
-  }, {})
+  const infos = $infos.reduce((infos, $info) => Object.assign(
+    infos, { [$info.name]: $info.value }
+  ), {})
 
   const $details = $$('.js-detail')
   const details = $details
