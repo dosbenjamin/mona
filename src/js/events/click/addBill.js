@@ -9,7 +9,7 @@ const $infos = $$('.js-infos-area .js-form-input')
 const calculateDetail = {
   purchases: amount => {
     return {
-      htva: parseFloat(amount),
+      htva: amount ? parseFloat(amount) : 0,
       tvac: getTVA(amount)
     }
   },
@@ -49,7 +49,7 @@ export default () => {
 
   const htva = details
     .map(({ htva }) => htva)
-    .reduce((total, amout) => total + amout)
+    .reduce((total, amount) => total + amount)
   const tvac = getTVA(htva)
   const tva = tvac - htva
 
