@@ -18,22 +18,19 @@ const months = {
 
 const createTitleRow = ({ year, month }) => {
   const $row = document.createElement('template')
+
   $row.innerHTML = `<tr class="js-title-row relative" data-year="${ year }" data-month="${ month }">
     <td colspan="5" class="uppercase py-8">${ months[month] } ${ year }</td>
   </tr>`
+
   return $row.content
 }
 
-const createNewRow = ({
-  infos: { company, firstname, lastname },
-  date: { year, month },
-  tvac,
-  htva,
-  tva
-  }, index) => {
+const createNewRow = ({ infos: { company, firstname, lastname }, date: { year, month }, tvac, htva, tva, id }) => {
   const $row = document.createElement('template')
-  $row.innerHTML += `<tr class="relative js-bill-item" data-id="${ index }">
-    <td>${ index + 1 }</td>
+
+  $row.innerHTML += `<tr class="relative js-bill-item" data-id="${ id }">
+    <td>${ id }</td>
     <td>${ company ? company : (firstname + ' ' + lastname) }</td>
     <td>${ htva.toFixed(2) }</td>
     <td>${ tvac.toFixed(2) }</td>
@@ -46,6 +43,7 @@ const createNewRow = ({
       </button>
     </td>
   </tr>`
+
   return $row.content
 }
 
@@ -66,18 +64,19 @@ export default class extends Page {
     const bills = localStorage.getItem(self.type)
       && JSON.parse(localStorage.getItem(self.type))
 
-    const dates = bills
+    const dates = bills && bills
       .map(({ date }) => date)
       .reduce((unique, date) => {
         return JSON.stringify(unique).includes(JSON.stringify(date))
           ? unique
           : [...unique, date]
-      }, []).reverse()
+      }, [])
+      .reverse()
       .forEach(date => $area.append(createTitleRow(date)))
 
     bills && bills.forEach((bill, index) => {
       const { date: { year, month } } = bill
-      const $row = createNewRow(bill, index)
+      const $row = createNewRow(bill)
       $area.insertBefore($row, $(`.js-title-row[data-year="${ year }"][data-month="${ month }"]`).nextSibling)
     })
   }
