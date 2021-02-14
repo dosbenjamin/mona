@@ -1,8 +1,7 @@
 import { $, $$ } from '../../utilities/dom'
 import getTVA from '../../components/tva'
 
-const RATE = 40
-const TVA = 21
+const { rate } = JSON.parse(localStorage.getItem('settings'))
 
 const $infos = $$('.js-infos-area .js-form-input')
 
@@ -16,8 +15,9 @@ const calculateDetail = {
   sales: hours => {
     return {
       hours: parseFloat(hours),
-      htva: parseFloat(RATE * hours),
-      tvac: getTVA(RATE * hours)
+      htva: parseFloat(rate * hours),
+      tvac: getTVA(rate * hours),
+      tva: getTVA(rate * hours) - parseFloat(rate * hours)
     }
   }
 }

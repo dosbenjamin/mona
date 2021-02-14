@@ -1,0 +1,24 @@
+extends ../default.pug
+
+block settings
+  - const controller = 'settings'
+  - const action = 'index'
+  - const title = 'Panneau d\'administration'
+
+include ../components/input.pug
+
+block content
+  form(class="grid grid-cols-2 gap-x-12 gap-y-6 mt-10")
+    +input('Nom*', 'Aldi', 'lastname')
+    +input('Prénom*', 'Aldi', 'firstname')
+    +input('Adresse*', 'Aldi', 'address')
+    +input('Code postal*', 'Aldi', 'zip')
+    +input('Ville*', 'Aldi', 'city')
+    +input('Pays', 'Aldi', 'country')
+    +input('Adresse e-mail*', 'Aldi', 'email')
+    +input('N° de téléphone*', 'Aldi', 'phone')
+    +input('Taux horaire HTVA*', 'Aldi', 'rate')
+    +input('IBAN*', 'Aldi', 'iban')
+    +input('Numéro d\'entreprise', 'Aldi', 'company')
+
+    button(class="rect-rounded-full border-blue bg-blue text-white uppercase text-small ml-auto mt-auto" type="button" data-click="saveSettings") Enregister
