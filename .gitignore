@@ -314,3 +314,5 @@ $RECYCLE.BIN/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/node,yarn,vscode,windows,macos,linux,phpstorm
+
+googleAuthentification.js
