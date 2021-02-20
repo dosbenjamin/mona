@@ -1,11 +1,10 @@
-import { changeHandler, clickHandler, inputHandler } from '../utilities/eventHandler'
 import { gapi } from 'gapi-script'
+import { on } from '../utilities/dom'
+import * as eventsType from '../events'
+import bindEvents from '../utilities/eventHandler'
 
 export default class {
   constructor () {
-    console.log('Global: Page')
-    document.addEventListener('click', clickHandler)
-    document.addEventListener('input', inputHandler)
-    document.addEventListener('change', changeHandler)
+    Object.keys(eventsType).forEach(type => on(type, event => bindEvents(event, type)))
   }
 }

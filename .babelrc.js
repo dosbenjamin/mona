@@ -1,7 +1,8 @@
 module.exports = {
   plugins: [
       ['wildcard', {
-          'useCamelCase': true
+          'useCamelCase': true,
+          'exts': ['js', '']
       }]
   ]
 }
