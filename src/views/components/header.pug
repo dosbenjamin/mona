@@ -2,9 +2,17 @@ header
   div(class="w-1200 m-auto py-16 flex justify-between items-center")
     div
       h1(class="sr-only") Mona
-      a(href="/")
+      a(href="/index.pug")
         img(class="w-24", src="../../images/mona.svg", alt="Logo de l'application Mona")
 
     ul(class="flex uppercase text-grey-600")
-      li: a(href="add-sale.pug") Factures de vente
-      li(class="ml-10"): a(href="/") Factures d'achat
+      li(class="has-submenu")
+        span(class="cursor-pointer") Factures de vente
+        ul(class="submenu is-invisible")
+          li: a(href="/add-sale.pug") Ajouter
+          li: a(href="/list-sales.pug") Liste
+      li(class="ml-10 has-submenu")
+        span(class="cursor-pointer") Factures d'achat
+        ul(class="submenu is-invisible")
+          li: a(href="/add-purchase.pug") Ajouter
+          li: a(href="/list-purchases.pug") Liste

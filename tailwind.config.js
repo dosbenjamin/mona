@@ -14,6 +14,7 @@ module.exports = {
         '400': '#EBEBEB',
         '600': '#B5B5B5'
       },
+      'red': '#C91717'
     },
     fontSize: {
       'small': '0.833rem',

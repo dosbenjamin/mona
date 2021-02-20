@@ -34,30 +34,66 @@
   }
 }
 
-.is-visible {
-  @apply visible;
+@layer components {
+  .rect-rounded {
+    @apply px-8 py-4 rounded;
+  }
+
+  .rect-rounded-border {
+    @apply rect-rounded border-1;
+  }
+
+  .btn-border {
+    @apply rect-rounded-border font-bold;
+  }
+
+  .btn-border-blue {
+    @apply rect-rounded-border text-blue border-blue font-bold;
+  }
+
+  .btn-full {
+    @apply rect-rounded font-bold;
+  }
+
+  .btn-full-blue {
+    @apply btn-full text-white bg-blue;
+  }
+
+  .btn-circle {
+    @apply bg-grey-400 rounded-full;
+  }
+
+  .btn-circle-grey {
+    @apply btn-circle hover:bg-red transition-colors ease-out duration-300;
+  }
+
+  .input-grey {
+    @apply rect-rounded-border text-grey-600 border-grey-400 focus:outline-none focus:border-blue;
+  }
+
+  .line {
+    @apply w-0.5 bg-white block absolute left-1/2 top-1/2 pointer-events-none;
+  }
+
+  .line-wide {
+    @apply line h-4;
+  }
+
+  .line-short {
+    @apply line h-2;
+  }
 }
 
-.is-invisible {
-  @apply invisible;
-}
+@layer utilities {
+  .is-visible {
+    @apply visible;
+  }
 
-.rect-rounded {
-  @apply px-8 py-4 rounded text-small;
-}
+  .is-invisible {
+    @apply invisible;
+  }
 
-.rect-rounded-border {
-  @apply rect-rounded border-1;
-}
-
-.rect-rounded-border.is-active {
-  @apply text-blue border-blue;
-}
-
-.rect-rounded-full {
-  @apply px-8 py-4 rounded;
-}
-
-.line {
-  @apply w-0.5 h-4 bg-white block absolute left-1/2 top-1/2 pointer-events-none;
+  .has-submenu:hover .submenu {
+    @apply visible;
+  }
 }

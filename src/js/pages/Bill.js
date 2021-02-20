@@ -30,17 +30,17 @@ const createTitleRow = ({ year, month }) => {
 const createNewRow = ({ infos: { company, firstname, lastname }, date: { year, month }, tvac, htva, tva, id }) => {
   const $row = document.createElement('template')
 
-  $row.innerHTML += `<tr class="relative js-bill-item" data-id="${ id }">
+  $row.innerHTML += `<tr class="relative bill odd:bg-red js-bill-item" height="60" data-id="${ id }">
     <td>${ id }</td>
     <td>${ company ? company : (firstname + ' ' + lastname) }</td>
     <td>${ htva.toFixed(2) }</td>
     <td>${ tvac.toFixed(2) }</td>
     <td>${ tva.toFixed(2) }</td>
     <td class="relative">
-      <button class="absolute -right-1/3 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-grey-400 rounded-full w-12 h-12 overflow-hidden" type="button" data-click="removeBill">
-        <span class="line transform -translate-x-1/2 -translate-y-1/2 rotate-45"></span>
+      <button class="absolute -right-1/3 top-1/2 transform -translate-x-1/2 -translate-y-1/2 btn-circle-grey w-12 h-12 overflow-hidden" type="button" data-click="removeBill">
+        <span class="line-wide transform -translate-x-1/2 -translate-y-1/2 rotate-45"></span>
         <span class="sr-only">Supprimer</span>
-        <span class="line transform -translate-x-1/2 -translate-y-1/2 -rotate-45"></span>
+        <span class="line-wide transform -translate-x-1/2 -translate-y-1/2 -rotate-45"></span>
       </button>
     </td>
   </tr>`

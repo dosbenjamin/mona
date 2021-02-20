@@ -21,12 +21,12 @@ block content
     +input('IBAN*', 'Aldi', 'iban')
     +input('Numéro d\'entreprise', 'Aldi', 'company')
 
-    button(class="rect-rounded-full border-blue bg-blue text-white uppercase text-small ml-auto mt-auto" type="button" data-click="saveSettings") Enregister
+    button(class="btn-full-blue ml-auto mt-auto" type="button" data-click="saveSettings") Enregister
 
   div(class="mt-20 flex justify-center")
     input(class="invisible w-0" type="file" data-change="importData")
-    button(class="rect-rounded-full border-blue bg-blue text-white uppercase text-small" type="button" data-click="triggerImport") Importer des données
-    a(class="rect-rounded-full cursor-pointer border-blue bg-blue text-white uppercase text-small ml-12" type="button" data-click="exportData") Exporter des données
+    button(class="btn-full-blue" type="button" data-click="triggerImport") Importer des données
+    a(class="btn-full-blue cursor-pointer ml-12" type="button" data-click="exportData") Exporter des données
 
-    button(class="rect-rounded-full bg-blue text-white uppercase text-small ml-12 js-google-authorize" data-click="googleSignIn" type="button") Se connecter à Google
-    button(class="rect-rounded-full bg-blue text-white uppercase text-small ml-12 js-google-signout " data-click="googleSignOut" type="button") Se déconnecter de Google
+    button(class="btn-full-blue ml-12 js-google-authorize" data-click="googleSignIn" type="button") Se connecter à Google
+    button(class="btn-full-blue ml-12 js-google-signout " data-click="googleSignOut" type="button") Se déconnecter de Google

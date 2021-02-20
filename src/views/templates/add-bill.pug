@@ -10,9 +10,9 @@ block content
   div(class="flex items-end mt-10")
     ul(class="flex")
       li
-        button(class="rect-rounded-border text-grey-600 border-grey-400 font-bold  js-form-toggle is-active" data-click="formNextStep") 1. Données de contact
+        button(class="js-form-toggle is-active" data-click="formNextStep" data-step="1") 1. Données de contact
       li(class="ml-10")
-        button(class="rect-rounded-border text-grey-600 border-grey-400 font-bold js-form-toggle" data-click="formNextStep") 2. Produits
+        button(class="js-form-toggle" data-click="formNextStep" data-step="2") 2. Produits
 
     p(class="ml-auto") * Champs requis
 
@@ -21,7 +21,7 @@ block content
       div(class="grid grid-cols-2 gap-x-12 gap-y-6 js-infos-area")
         block contact
 
-      button(class="rect-rounded-full border-blue bg-blue text-white uppercase text-small ml-auto mt-12 js-next-button" type="button" data-click="formNextStep") Suivant
+      button(class="btn-full-blue ml-auto mt-12 js-next-button" type="button" data-click="formNextStep") Suivant
 
     form(class="absolute mt-12 flex flex-col w-full js-form form is-invisible")
       div
@@ -32,6 +32,6 @@ block content
 
             block subdetails
 
-        button(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12", type="button", data-click="addDetail") Ajouter un #{ submitLabel }
+        button(class="btn-full-blue ml-auto mt-12", type="button", data-click="addDetail") Ajouter un #{ submitLabel }
 
-      a(class="rect-rounded-full border-blue bg-blue text-white ml-auto mt-12 text-small uppercase", href = `/list-${ type }.pug`, data-click="addBill googleSave") Suivant
+      a(class="btn-full-blue ml-auto mt-12", href = `/list-${ type }.pug`, data-click="addBill googleSave") Suivant
