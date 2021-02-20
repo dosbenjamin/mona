@@ -1,3 +1,4 @@
-import Router from './components/Router'
+import Router from './Router'
+import { on } from './utilities/dom'
 
-document.addEventListener('DOMContentLoaded', new Router)
+on('DOMContendLoaded', new Router)

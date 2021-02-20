@@ -1,4 +1,4 @@
-import * as Page from '../pages'
+import * as Page from './pages'
 
 const { controller, action } = document.body.dataset
 
